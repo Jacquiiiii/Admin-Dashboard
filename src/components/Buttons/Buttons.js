@@ -1,7 +1,10 @@
 import { useState } from "react"
 import { Button, ButtonWrapper, ClearButton, SearchWrapper,SearchButtonWrapper, SearchInput } from "./styles"
+import { useContext } from "react"
+import { DataContext } from "@/context/DataContext"
 
-const Buttons = ({ setShow, searchResults, setSearchResults, users, books, reviews }) => {
+const Buttons = ({ searchResults, setSearchResults }) => {
+  const { data, setShow } = useContext(DataContext)
   const [showFilters, setShowFilters] = useState(false)
   const [showSearch, setShowSearch] = useState(false)
   const [errorMessage, setErrorMessage] = useState(null)
@@ -10,10 +13,9 @@ const Buttons = ({ setShow, searchResults, setSearchResults, users, books, revie
   const handleShowTable = (key) => {
     setShow({
       users: false,
-      phones: false,
-      mobility: false,
-      internet: false,
-      tv: false,
+      books: false,
+      reviews: false,
+      results: false,
       [key]: true
     })
   }
@@ -40,9 +42,9 @@ const Buttons = ({ setShow, searchResults, setSearchResults, users, books, revie
   const handleSubmitSearch = (searchTerm) => {
     setSearchResults(null)
 
-    const usersData = filterData(users, searchTerm)
-    const reviewsData = filterData(reviews, searchTerm)
-    const booksData = filterData(books, searchTerm)
+    const usersData = filterData(data.users, searchTerm)
+    const reviewsData = filterData(data.reviews, searchTerm)
+    const booksData = filterData(data.books, searchTerm)
 
     setSearchResults({ users: usersData, books: booksData, reviews: reviewsData })
 

@@ -1,85 +1,25 @@
-import { useState } from "react"
 import { TableWrapper, StyledTable, Caption, StyledTh, StyledTd, TableButton, UpdateButtonsContainer, AddWrapper, AddInput, AddButton, SaveButton } from "./styles"
-import { deleteData } from "@/utils/deleteData"
-import { fetchData } from "@/utils/fetchData"
-import { updateData } from "@/utils/updateData"
-import { addData } from "@/utils/addData"
 import { columnMap, inventoryStatuses } from "@/constants/constants"
+import { useDataTable } from "@/hooks/useDataTable"
 
-const DataTable = ({ data, caption, setUsers, setBooks, setReviews }) => {
-  // Get current date and time for updating newRowData for a review
-  const currentDate = new Date()
-  const formattedDate = currentDate.toISOString().split('T')[0]
-  
-  const [showAddRow, setShowAddRow] = useState(false)
-  const [newRowData, setNewRowData] = useState(caption === 'reviews' ? { review_date: formattedDate } : {})
+const DataTable = ({ caption, data }) => {
   const sortedData = data.sort((a, b) => a.id - b.id)
   const headings = Object.keys(sortedData[0])
 
-  const getUpdatedData = async () => {
-    const users = await fetchData('/api/users')
-    const books = await fetchData('/api/books')
-    const reviews = await fetchData('/api/reviews?type=enhanced')
-
-    setUsers(users)
-    setBooks(books)
-    setReviews(reviews)
-  }
-
-  const handleDelete = async (row, table) => {
-    if (table === 'users') {
-      await deleteData('/api/reviews', { data: { user_id: row.id } })
-      const response = await deleteData('/api/users', { data: { id: row.id } })
-
-      if (response) {
-        getUpdatedData()
-      }
-    } else {
-      const response = await deleteData(`/api/${table}`, { data: { id: row.id } })
-
-      if (response) {
-        getUpdatedData()
-      }
-    }
-  }
-
-  const handleInventoryStatusUpdate = async (id, newStatus) => {
-    const response = await updateData('/api/books', { 
-      data: { 
-        id: id,
-        column: 'inventory_status',
-        newData: newStatus
-      } 
-    })
-
-    if (response) {
-      getUpdatedData()
-    }
-  }
-
-  const handleSave = async (tableName) => {
-    let response
-
-    if (tableName === 'users') {
-      response = await addData(`/api/${tableName}`, { 
-        userData: newRowData,
-        requestType: 'add user'
-      })
-    } else {
-      response = await addData(`/api/${tableName}`, { data: newRowData })
-    }
-
-    if (response) {
-      getUpdatedData()
-    }
-
-    setShowAddRow(false)
-    setNewRowData({})
-  }
+  const {
+    handleDelete,
+    handleSave,
+    handleInventoryStatusUpdate,
+    showAddRow,
+    setShowAddRow,
+    newRowData,
+    setNewRowData
+  } = useDataTable(caption)
 
   return (
     <TableWrapper>
       <StyledTable>
+
         <Caption>
           <div>
             {caption}
@@ -101,13 +41,14 @@ const DataTable = ({ data, caption, setUsers, setBooks, setReviews }) => {
                     )
                   }
                 })}
-                <SaveButton onClick={() => handleSave(caption)}>
+                <SaveButton onClick={() => handleSave(caption, newRowData)}>
                   Save
                 </SaveButton>
               </AddWrapper>
             }
           </div>
         </Caption>
+
         <thead>
           <tr>
             {headings.map((heading, index) => <StyledTh key={index}>{heading}</StyledTh>)}
@@ -119,6 +60,7 @@ const DataTable = ({ data, caption, setUsers, setBooks, setReviews }) => {
             }
           </tr>
         </thead>
+
         <tbody>
           {sortedData.map((row, index) => (
             <tr key={index}>
@@ -140,12 +82,13 @@ const DataTable = ({ data, caption, setUsers, setBooks, setReviews }) => {
               }
               { caption !== 'books' && caption !== 'search results' &&
                 <StyledTd colSpan={headings.length}>
-                  <TableButton onClick={() => handleDelete(row, caption)}>Delete</TableButton>
+                  <TableButton onClick={() => handleDelete(row.id)}>Delete</TableButton>
                 </StyledTd>
               }
             </tr>
           ))}
         </tbody>
+
       </StyledTable>
     </TableWrapper>
   )
