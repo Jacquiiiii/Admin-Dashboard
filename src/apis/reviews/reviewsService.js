@@ -14,7 +14,7 @@ export const addReview = async (params) => addDataToDb('reviews', params)
 // Retrieves all reviews from the database joined with their associated reviewer and book data
 export const getEnhancedReviews = async () => {
   const params = { 
-    columns: 'reviews.id, reviews.book_id, books.book_title, reviews.review_text, reviews.review_date, reviews.user_id, users.name',
+    columns: 'reviews.id, reviews.book_id, books.book_title, reviews.review_text, reviews.review_date, reviews.user_id, users.user_name',
     joinConditions: [
       { 
         joinTable: 'users', 

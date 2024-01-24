@@ -1,4 +1,4 @@
-INSERT INTO users (name, age, email, address) VALUES
+INSERT INTO users (user_name, age, email, address) VALUES
 
 ('Frodo', 30, 'frodo@lotr.com', '123 Bag End St, Vancouver, BC'),
 ('Samwise', 25, 'samwise@lotr.com', '456 Shire Ave, Toronto, ON'),

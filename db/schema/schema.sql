@@ -13,7 +13,7 @@ CREATE TABLE books (
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
-  name VARCHAR(255),
+  user_name VARCHAR(255),
   age INTEGER,
   email VARCHAR(255),
   address VARCHAR(255)
