@@ -8,3 +8,5 @@
 - Add swr for client side fetching / improve speed
 - Add graphql (?)
 - Refactor for accessibility
+- Update search function so it allows id search and is not case sensitive
+- Secure login

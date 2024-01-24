@@ -12,7 +12,7 @@ const NavContainer = styled.div`
 const Nav = () => {
   return (
     <NavContainer>
-      <h1>Database Dashboard</h1>
+      <h1>Admin Dashboard</h1>
     </NavContainer>
   )
 }
