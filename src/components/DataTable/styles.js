@@ -35,7 +35,7 @@ export const StyledTable = styled.table`
   color: black;
 
   tr:hover {
-    background-color: #f5f5f5;
+    background-color: #e4ece9;
   }
 `
 
@@ -52,7 +52,7 @@ export const Caption = styled.caption`
 `
 
 export const StyledTh = styled.th`
-  background-color: #f5f5f5;
+  background-color: #e4ece9;
   border: 1px solid #2d373b;
   padding: 8px;
   color: black;
@@ -69,7 +69,7 @@ export const StyledTd = styled.td`
     color: black;
     
     &:hover {
-      color: #2f440f;
+      color: red;
     }
   }
 `
@@ -93,7 +93,10 @@ export const TableButton = styled.button`
   color: black;
 
   &:hover {
-    color: #2f440f;
+    border: 1px solid #2d373b;
+    border-radius: 2px;
+    background-color: rgb(9, 40, 55);
+    color: whitesmoke;
   }
 `
 
@@ -120,20 +123,14 @@ export const AddButton = styled.button`
   border: none;
   margin-left: 10px;
   font-size: 20px;
-
-  &:hover {
-    color: #2f440f;
-  }
 `
 
 export const SaveButton = styled.button`
-  background: none;
-  border: none;
+  border: 1px solid #2d373b;
+  padding: 7px 10px;
+  border-radius: 2px;
+  background-color: rgb(9, 40, 55);
+  color: whitesmoke;
   cursor: pointer;
-  color: black;
   font-size: 16px;
-
-  &:hover {
-    color: #2f440f;
-  }
 `

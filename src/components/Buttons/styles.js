@@ -12,13 +12,12 @@ export const ButtonWrapper = styled.div`
 
 export const Button = styled.button`
   border: 1px solid #2d373b;
-  padding: 10px;
+  padding: 7px 10px;
   border-radius: 2px;
-  background-color: #7fa99b;
-  color: black;
+  background-color: rgb(9, 40, 55);
+  color: whitesmoke;
   cursor: pointer;
   font-size: 16px;
-  font-weight: bold;
 `
 
 export const ClearButton = styled.button`
@@ -28,10 +27,6 @@ export const ClearButton = styled.button`
   background-color: transparent;
   cursor: pointer;
   font-size: 16px;
-
-  &:hover {
-    color: #2f440f;
-  }
 `
 
 export const SearchWrapper = styled.div`

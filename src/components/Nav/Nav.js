@@ -25,10 +25,6 @@ const LoggedInContainer = styled.div`
     font-size: 16px;
     cursor: pointer;
     font-weight: bold;
-
-    &:hover {
-      color: #2f440f;
-    }
   }
 `
 

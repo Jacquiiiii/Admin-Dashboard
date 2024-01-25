@@ -25,10 +25,12 @@ const DataTable = ({ caption, tableData }) => {
 
         <Caption>
           <div>
-            {caption}
-            {caption !== 'search results' &&
-              <AddButton onClick={() => setShowAddRow(!showAddRow)}>{showAddRow ? 'x' : '+'}</AddButton>
-            }
+            <div style={{display: 'flex', alignItems: 'center'}}>
+              <span>{caption}</span>
+              {caption !== 'search results' &&
+                <AddButton onClick={() => setShowAddRow(!showAddRow)}>{showAddRow ? 'x' : '+'}</AddButton>
+              }
+            </div>
             {showAddRow && 
               <AddWrapper>
                 {columnMap[caption].map((column, index) => {
