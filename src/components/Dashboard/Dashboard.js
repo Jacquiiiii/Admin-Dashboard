@@ -1,10 +1,10 @@
 import { useState } from "react"
-import Buttons from "../Buttons/Buttons"
-import DataTable from "../DataTable/DataTable"
+import Buttons from "./subComponents/Buttons/Buttons"
+import DataTable from "./subComponents/DataTable/DataTable"
 import { DashboardWrapper } from "./styles"
 import { DataContext } from "@/context/DataContext"
 
-const DbDashboard = ({ usersData, booksData, reviewsData }) => {
+const Dashboard = ({ usersData, booksData, reviewsData }) => {
   const [searchResults, setSearchResults] = useState(null)
 
   const [data, setData] = useState({
@@ -47,4 +47,4 @@ const DbDashboard = ({ usersData, booksData, reviewsData }) => {
   )
 }
 
-export default DbDashboard
+export default Dashboard
