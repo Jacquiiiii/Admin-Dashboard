@@ -26,13 +26,13 @@ export const TableWrapper = styled.div`
 `
 
 export const StyledTable = styled.table`
-  border: 1px solid #5f6769;
+  border: 1px solid #2d373b;
   border-collapse: collapse;
-  font-family: monospace;
   max-width: 100%;
   min-width: 100%;
   font-size: 16px;
   background-color: white;
+  color: black;
 
   tr:hover {
     background-color: #f5f5f5;
@@ -40,30 +40,36 @@ export const StyledTable = styled.table`
 `
 
 export const Caption = styled.caption`
-  background-color: #092837;
-  color: white;
+  background-color: #7fa99b;
+  border-top: 1px solid #2d373b;
+  border-left: 1px solid #2d373b;
+  border-right: 1px solid #2d373b;
+  color: black;
   text-align: left;
   padding: 10px;
   font-size: 20px;
+  font-weight: bold;
 `
 
 export const StyledTh = styled.th`
-  background-color: #8888886e;
-  border: 1px solid #5f6769;
+  background-color: #f5f5f5;
+  border: 1px solid #2d373b;
   padding: 8px;
+  color: black;
   text-align: left;
 `
 
 export const StyledTd = styled.td`
   padding: 6px;
   text-align: left;
-  border: 1px solid #5f6769;
+  border: 1px solid #2d373b;
+  color: black;
 
   a {
     color: black;
     
     &:hover {
-      color: rgb(146, 73, 88);
+      color: #2f440f;
     }
   }
 `
@@ -78,28 +84,23 @@ export const UpdateButtonsContainer = styled.div`
 `
 
 export const TableButton = styled.button`
-  font-family: monospace;
   font-size: 16px;
   background: none;
   border: 1px solid black;
-  border-radius: 5px;
+  border-radius: 2px;
   cursor: pointer;
   padding: 2px;
   color: black;
-  transition: transform 0.1s ease;
 
   &:hover {
-    color: rgb(146, 73, 88);
-    border-color: rgb(146, 73, 88);
-    transform: scale(0.99);
+    color: #2f440f;
   }
 `
 
 export const AddInput = styled.input`
-  font-family: monospace;
   padding: 5px;
-  border-radius: 5px;
-  border: none;
+  border-radius: 2px;
+  border: 1px solid #2d373b;
   outline: none;
   font-size: 16px;
 `
@@ -115,17 +116,13 @@ export const AddWrapper = styled.div`
 export const AddButton = styled.button`
   background: none;
   cursor: pointer;
-  color: whitesmoke;
-  font-family: monospace;
+  color: black;
   border: none;
   margin-left: 10px;
-  font-weight: bold;
   font-size: 20px;
-  transition: transform 0.1s ease;
 
   &:hover {
-    text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.6);
-    transform: scale(0.99);
+    color: #2f440f;
   }
 `
 
@@ -133,14 +130,10 @@ export const SaveButton = styled.button`
   background: none;
   border: none;
   cursor: pointer;
-  color: whitesmoke;
-  font-weight: bold;
+  color: black;
   font-size: 16px;
-  font-family: monospace;
-  transition: transform 0.1s ease;
 
   &:hover {
-    text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.6);
-    transform: scale(0.99);
+    color: #2f440f;
   }
 `

@@ -3,9 +3,9 @@ import styled from "styled-components"
 const NavContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  background-color: #092837;
+  background-color: white;
   align-items: center;
-  color: white;
+  color: ##2d373b;
   margin-bottom: 40px;
   box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.3);
 
@@ -21,14 +21,13 @@ const LoggedInContainer = styled.div`
   button {
     background: none;
     border: none;
-    color: white;
+    color: #2d373b;
     font-size: 16px;
     cursor: pointer;
-    transition: transform 0.1s ease;
+    font-weight: bold;
 
     &:hover {
-      text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.6);
-      transform: scale(0.99);
+      color: #2f440f;
     }
   }
 `

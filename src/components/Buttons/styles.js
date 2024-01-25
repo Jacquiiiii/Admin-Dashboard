@@ -11,35 +11,26 @@ export const ButtonWrapper = styled.div`
 `
 
 export const Button = styled.button`
-  border: none;
+  border: 1px solid #2d373b;
   padding: 10px;
-  border-radius: 5px;
-  background-color: #092837;
-  color: whitesmoke;
-  font-family: monospace;
+  border-radius: 2px;
+  background-color: #7fa99b;
+  color: black;
   cursor: pointer;
   font-size: 16px;
-  transition: background-color 0.3s ease, transform 0.1s ease;
-
-  &:hover {
-    transform: scale(0.99);
-    background-color: #1c5f7f;
-  }
+  font-weight: bold;
 `
 
 export const ClearButton = styled.button`
   border: none;
   padding: 1em;
-  border: none;
+  color: black;
   background-color: transparent;
-  font-family: monospace;
   cursor: pointer;
-  font-weight: bold;
   font-size: 16px;
-  transition: transform 0.1s ease;
 
   &:hover {
-    transform: scale(0.99);
+    color: #2f440f;
   }
 `
 
@@ -64,11 +55,6 @@ export const SearchButtonWrapper = styled.div`
 
   button {
     padding: 10px;
-    transition: transform 0.1s ease;
-
-    &:hover {
-      transform: scale(0.99);
-    }
   }
 
   @media (max-width: 768px) {
@@ -78,12 +64,10 @@ export const SearchButtonWrapper = styled.div`
 `
 
 export const SearchInput = styled.input`
-  font-family: monospace;
   padding: 1em;
-  border-radius: 5px;
-  border-color: #2c5d63;
+  border-radius: 2px;
+  border: 1px solid #2d373b;
   background-color: #fff;
-  border-width: 1px;
   outline: none;
   width: 50%;
   font-size: 16px;
