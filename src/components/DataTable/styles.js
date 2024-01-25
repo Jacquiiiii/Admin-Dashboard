@@ -27,14 +27,20 @@ export const TableWrapper = styled.div`
 
 export const StyledTable = styled.table`
   border: 1px solid #5f6769;
+  border-collapse: collapse;
   font-family: monospace;
   max-width: 100%;
   min-width: 100%;
   font-size: 16px;
+  background-color: white;
+
+  tr:hover {
+    background-color: #f5f5f5;
+  }
 `
 
 export const Caption = styled.caption`
-  background-color: #2c5d63;
+  background-color: #092837;
   color: white;
   text-align: left;
   padding: 10px;
@@ -42,9 +48,8 @@ export const Caption = styled.caption`
 `
 
 export const StyledTh = styled.th`
-  background-color: #615E66;
+  background-color: #8888886e;
   border: 1px solid #5f6769;
-  color: white;
   padding: 8px;
   text-align: left;
 `
@@ -56,6 +61,7 @@ export const StyledTd = styled.td`
 
   a {
     color: black;
+    
     &:hover {
       color: rgb(146, 73, 88);
     }
@@ -80,9 +86,12 @@ export const TableButton = styled.button`
   cursor: pointer;
   padding: 2px;
   color: black;
+  transition: transform 0.1s ease;
+
   &:hover {
     color: rgb(146, 73, 88);
     border-color: rgb(146, 73, 88);
+    transform: scale(0.99);
   }
 `
 
@@ -112,8 +121,11 @@ export const AddButton = styled.button`
   margin-left: 10px;
   font-weight: bold;
   font-size: 20px;
+  transition: transform 0.1s ease;
+
   &:hover {
-    color: #32e0b9;
+    text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.6);
+    transform: scale(0.99);
   }
 `
 
@@ -125,7 +137,10 @@ export const SaveButton = styled.button`
   font-weight: bold;
   font-size: 16px;
   font-family: monospace;
+  transition: transform 0.1s ease;
+
   &:hover {
-    color: #32e0b9;
+    text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.6);
+    transform: scale(0.99);
   }
 `
