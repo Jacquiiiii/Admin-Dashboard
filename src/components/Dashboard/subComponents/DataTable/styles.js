@@ -89,7 +89,7 @@ export const TableButton = styled.button`
   border: 1px solid black;
   border-radius: 2px;
   cursor: pointer;
-  padding: 2px;
+  padding: 2px 5px;
   color: black;
 
   &:hover {

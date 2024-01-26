@@ -38,6 +38,7 @@ export const SearchWrapper = styled.div`
 
   @media (max-width: 768px) {
     flex-direction: column;
+    align-items: flex-start;
     width: 100%;
   }
 `
@@ -54,7 +55,7 @@ export const SearchButtonWrapper = styled.div`
 
   @media (max-width: 768px) {
     width: 100%;
-    justify-content: center;
+    justify-content: flex-end;
   }
 `
 

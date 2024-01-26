@@ -84,6 +84,23 @@ export const useDataTable = (caption) => {
     }
   }
 
+  // Handles button click to update user role and refresh the data
+  // TODO: Add error handling
+  const handleRoleUpdate = async (id, newRole) => {
+    const response = await updateData('/api/users', { 
+      data: { 
+        id: id,
+        column: 'user_role',
+        newData: newRole
+      } 
+    })
+
+    if (response && response.length > 0) {
+      const users = await fetchData('/api/users')
+      setData(prev => ({...prev, users: users}))
+    }
+  }
+
   return { 
     handleDelete, 
     handleSave,
@@ -91,6 +108,7 @@ export const useDataTable = (caption) => {
     showAddRow, 
     setShowAddRow, 
     newRowData, 
-    setNewRowData 
+    setNewRowData,
+    handleRoleUpdate
   }
 }

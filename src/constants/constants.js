@@ -5,3 +5,5 @@ export const columnMap = {
 }
 
 export const inventoryStatuses = ['available', 'out of stock', 'discontinued']
+
+export const userRoles = ['user', 'admin']

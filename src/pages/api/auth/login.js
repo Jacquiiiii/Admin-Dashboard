@@ -1,4 +1,4 @@
-import { handlePostToCheckLoginCreds } from "@/apis/login/loginController"
+import { handlePostToCheckLoginCreds } from "@/apis/auth/login/loginController"
 
 const loginHandler = (req, res) => {
   if (req.method === 'POST') {
