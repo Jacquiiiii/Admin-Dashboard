@@ -9,4 +9,4 @@
 - Add graphql (?)
 - Refactor for accessibility
 - Update search function so it allows id search and is not case sensitive
-- Secure login
+- Secure login and authentication: https://nextjs.org/docs/pages/building-your-application/authentication
