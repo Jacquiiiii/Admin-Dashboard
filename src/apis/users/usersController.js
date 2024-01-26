@@ -1,4 +1,4 @@
-import { getUsers, getFilteredUsers, addUser, deleteUser } from "./usersService"
+import { getUsers, getFilteredUsers, addUser, deleteUser, updateRole } from "./usersService"
 
 // Handles HTTP GET request to retrieve users data from database
 export const handleGetUsers = async (req, res) => {
@@ -53,5 +53,21 @@ export const handleDeleteUser = async (req, res) => {
     res.status(200).json(user)
   } catch (error) {
     res.status(500).json({ error: 'Internal Server Error. Cannot POST user.' })
+  }
+}
+
+// Handles HTTP PATCH request to update a users's role in the database
+export const handleUpdateRole = async (req, res) => {
+  try {
+    const role = await updateRole(req.body.data)
+
+    if (!role) {
+      return res.status(404).json({ error: 'No role found.' })
+    }
+
+    res.status(200).json(role)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ error: 'An error occurred while updating the role.' })
   }
 }

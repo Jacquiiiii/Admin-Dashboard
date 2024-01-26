@@ -1,5 +1,5 @@
 import { TableWrapper, StyledTable, Caption, StyledTh, StyledTd, TableButton, UpdateButtonsContainer, AddWrapper, AddInput, AddButton, SaveButton } from "./styles"
-import { columnMap, inventoryStatuses } from "@/constants/constants"
+import { columnMap, inventoryStatuses, userRoles } from "@/constants/constants"
 import { DataContext } from "@/context/DataContext"
 import { useDataTable } from "@/hooks/useDataTable"
 import { useContext } from "react"
@@ -16,7 +16,8 @@ const DataTable = ({ caption, tableData }) => {
     showAddRow,
     setShowAddRow,
     newRowData,
-    setNewRowData
+    setNewRowData,
+    handleRoleUpdate
   } = useDataTable(caption)
 
   return (
@@ -57,14 +58,17 @@ const DataTable = ({ caption, tableData }) => {
         <thead>
           <tr>
             {headings.map((heading, index) => <StyledTh key={index}>{heading}</StyledTh>)}
-            { caption === 'users' &&
-              <StyledTh colSpan={headings.length}>Number of reviews</StyledTh>
+            {caption === 'users' &&
+              <>
+                <StyledTh colSpan={headings.length}>number of reviews</StyledTh>
+                <StyledTh colSpan={headings.length}>update role</StyledTh>
+              </>
             }
             {caption === 'books' && caption !== 'search results' &&
-              <StyledTh colSpan={headings.length}>Update Inventory Status</StyledTh>
+              <StyledTh>update inventory status</StyledTh>
             }
             { caption !== 'books' && caption !== 'search results' &&
-              <StyledTh colSpan={headings.length}></StyledTh>
+              <StyledTh>delete</StyledTh>
             }
           </tr>
         </thead>
@@ -80,9 +84,18 @@ const DataTable = ({ caption, tableData }) => {
                 <StyledTd key={i}>{value}</StyledTd>
               )}
               {caption === 'users' &&
-                <StyledTd colSpan={headings.length}>
-                  {data.reviews.filter((review) => review.user_id === row.id).length}
-                </StyledTd>
+                <>
+                  <StyledTd colSpan={headings.length}>
+                    {data.reviews.filter((review) => review.user_id === row.id).length}
+                  </StyledTd>
+                  <StyledTd>
+                    <UpdateButtonsContainer>
+                      {userRoles.map((role, index) => (
+                        <TableButton key={index} onClick={() => handleRoleUpdate(row.id, role)}>{role}</TableButton>
+                      ))}
+                    </UpdateButtonsContainer>
+                  </StyledTd>
+                </>
               }
               {caption === 'books' && caption !== 'search results' &&
                 <StyledTd colSpan={headings.length}>

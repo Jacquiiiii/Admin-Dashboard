@@ -1,4 +1,4 @@
-import { handleGetUsers, handlePostToFilterUsers, handleDeleteUser, handlePostToAddUser } from "@/apis/users/usersController"
+import { handleGetUsers, handlePostToFilterUsers, handleDeleteUser, handlePostToAddUser, handleUpdateRole } from "@/apis/users/usersController"
 
 const usersHandler = (req, res) => {
   if (req.method === 'GET') {
@@ -12,6 +12,8 @@ const usersHandler = (req, res) => {
     }
   } else if (req.method === 'DELETE') {
     handleDeleteUser(req, res)
+  } else if (req.method === 'PATCH') {
+    handleUpdateRole(req, res)
   } else {
     res.status(405).json({ message: 'Method Not Allowed' })
   }
