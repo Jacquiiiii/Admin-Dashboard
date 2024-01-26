@@ -24,8 +24,11 @@ export const LoginForm = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 15px;
   width: 30vw;
+
+  span {
+    color: red;
+  }
 
   input {
     border-radius: 2px;
@@ -33,6 +36,7 @@ export const LoginForm = styled.div`
     width: 100%;
     border: none;
     font-size: 20px;
+    margin: 7px;
   }
 
   button {
@@ -44,6 +48,7 @@ export const LoginForm = styled.div`
     font-size: 20px;
     background-color: #7fa99b;
     transition: 0.2s all; 
+    margin: 7px;
 
     &:hover {
       transform: scale(0.98); 

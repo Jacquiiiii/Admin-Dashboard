@@ -19,7 +19,6 @@ export const useDataTable = (caption) => {
   // TODO: Add error handling
   const setAndFetchAllData = async () => {
     const data = await fetchAllData()
-    console.log(data)
     setData({
       users: data.users,
       books: data.books,
