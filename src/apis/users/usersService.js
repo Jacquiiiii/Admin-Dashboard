@@ -3,7 +3,9 @@ import { getDataFromDb } from "../../../db/utils/dbGet"
 import { removeDataFromDb } from "../../../db/utils/dbDelete"
 
 // Retrieves all users from the database
-export const getUsers = async () => getDataFromDb('users')
+export const getUsers = async () => getDataFromDb('users', {
+  columns: 'users.id, users.user_name, users.age, users.email, users.address, users.user_role'
+})
 
 // Retrieves users from the database filtered by params
 export const getFilteredUsers = async (params) => getDataFromDb('users', params)
