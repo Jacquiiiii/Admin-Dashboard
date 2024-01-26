@@ -35,7 +35,19 @@ const Buttons = ({ searchResults, setSearchResults }) => {
   }
 
   const filterData = (data, searchTerm) => {
-    const filtered = data.filter(row => Object.values(row).some(value => value === searchTerm))
+    const searchTermLower = searchTerm.toLowerCase()
+
+    const filtered = data.filter(row =>
+      Object.values(row).some(value => {
+        if (typeof value === 'string') {
+          return value.toLowerCase().includes(searchTermLower)
+        } else if (typeof value === 'number') {
+          return value.toString().toLowerCase().includes(searchTermLower)
+        }
+        return false
+      })
+    )
+
     return filtered
   }
 
@@ -48,7 +60,9 @@ const Buttons = ({ searchResults, setSearchResults }) => {
 
     setSearchResults({ users: usersData, books: booksData, reviews: reviewsData })
 
-    if (searchResults && searchResults.users.length === 0 && searchResults.books.length === 0 && searchResults.reviews.length === 0 ) {
+    console.log(searchResults)
+
+    if (!searchResults || searchResults && searchResults.users.length === 0 && searchResults.books.length === 0 && searchResults.reviews.length === 0 ) {
       setErrorMessage('No search results found. Please try again.')
     } else {
       setInput('')
