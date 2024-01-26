@@ -16,7 +16,9 @@ CREATE TABLE users (
   user_name VARCHAR(255),
   age INTEGER,
   email VARCHAR(255),
-  address VARCHAR(255)
+  address VARCHAR(255),
+  user_role VARCHAR(255),
+  password VARCHAR(255)
 );
 
 CREATE TABLE reviews (
